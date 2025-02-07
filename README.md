@@ -3,7 +3,7 @@ Pinmux Helper for i.MX6
 
 The pinctrl in devicetrees for i.MX processors always follows the pattern
 
-<PAD_NAME>__<ALTERNATE_FUNCTION>     <Drive Characteristics>
+<PAD_NAME>__<ALTERNATE_FUNCTION>     <DRIVE_CHARACTERISTICS>
 
 While Pad Name and Alternate Function are somewhat human-readable, the drive Characteristics is usually expressed as hex value.
 
