@@ -150,7 +150,7 @@ def generate_pinmux_option(options):
     if "PUS_100K_DOWN" in options:
         pass
     elif "PUS_47K_UP" in options:
-        opt |= PAD_CTL_PUS_47K_U
+        opt |= PAD_CTL_PUS_47K_UP
     elif "PUS_100K_UP" in options:
         opt |= PAD_CTL_PUS_100K_UP
     elif "PUS_22K_UP" in options:
