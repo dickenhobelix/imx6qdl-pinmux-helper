@@ -1,4 +1,7 @@
-from pinmux_helper_imx6 import mux_description, pin_drive_characteristics
+from src.pinmux_helper_imx6.pinmux_helper_imx6 import (
+    mux_description,
+    pin_drive_characteristics,
+)
 
 
 def test_parse_line_smoketest():

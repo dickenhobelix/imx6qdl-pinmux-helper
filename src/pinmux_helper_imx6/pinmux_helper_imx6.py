@@ -219,7 +219,7 @@ class pinmux_generator:
         return str(hex(opt))
 
 
-if __name__ == "__main__":
+def main():
     try:
         line = ""
         for arg in sys.argv[1:]:
@@ -276,3 +276,7 @@ if __name__ == "__main__":
         print(mux_description(line))
     except Exception as ex:
         print(ex)
+
+
+if __name__ == "__main__":
+    main()
