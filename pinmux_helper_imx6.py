@@ -199,11 +199,11 @@ class pinmux_generator:
             opt |= PAD_CTL_DSE_80ohm
         elif "DSE_60OHM" in options:
             opt |= PAD_CTL_DSE_60ohm
-        elif "DSE48OHM" in options:
+        elif "DSE_48OHM" in options:
             opt |= PAD_CTL_DSE_48ohm
-        elif "DSE40OHM" in options:
+        elif "DSE_40OHM" in options:
             opt |= PAD_CTL_DSE_40ohm
-        elif "DSE34OHM" in options:
+        elif "DSE_34OHM" in options:
             opt |= PAD_CTL_DSE_34ohm
         else:
             raise Exception("no DSE value passed, use -h for valid options")
@@ -248,7 +248,7 @@ if __name__ == "__main__":
             print("       ODE: ODE_ENABLE or ODE_DISABLE (enable OpenDrain)")
             print("       SPEED: LOW_SPEED, MED_SPEED, HIGH_SPEED")
             print(
-                "       DSE: DSE_DISABLE, DSE_240OHM, DSE_120OHM, DSE_80OHM, DSE_60OHM, DSE48OHM, DSE40OHM, DSE34OHM (Drive Strength)"
+                "       DSE: DSE_DISABLE, DSE_240OHM, DSE_120OHM, DSE_80OHM, DSE_60OHM, DSE_48OHM, DSE_40OHM, DSE_34OHM (Drive Strength)"
             )
             print("       SRE: SRE_SLOW, SRE_FAST")
             print("       SION: SION (or leave out, is implicitely off)")
