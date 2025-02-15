@@ -175,7 +175,7 @@ class pinmux_generator:
 
         if "ODE_ENABLE" in options:
             opt |= PAD_CTL_ODE
-        elif "ODE_DISABLE":
+        elif "ODE_DISABLE" in options:
             pass
         else:
             raise Exception("no ODE value passed, use -h for valid options")
