@@ -77,7 +77,7 @@ class pin_drive_characteristics:
                 self.speed = "undefined"
             dse = (raw_value >> 3) & 7
             if dse == 0:
-                self.dse == "disable"
+                self.dse = "disable"
             elif dse == 1:
                 self.dse = "260 Ohm (150 Ohm @ 3.3V, 260 Ohm @ 1.8V)"
             elif dse == 2:
