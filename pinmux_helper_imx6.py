@@ -60,7 +60,7 @@ class pin_drive_characteristics:
                 self.pke = "Pull/Keeper enabled"
             else:
                 self.pke = "Pull/Keeper disabled"
-            if 0 != (raw_value & (1 << 13)):
+            if 0 != (raw_value & (1 << 11)):
                 self.ode = "True (Open Drain Enabled)"
             else:
                 self.ode = "False (Open Drain Disabled)"
