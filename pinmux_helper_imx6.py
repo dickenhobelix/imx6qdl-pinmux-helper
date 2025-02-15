@@ -136,86 +136,87 @@ class mux_description:
         return f"Pad {self.pad} is muxed to function {self.function}\n\nPin Drive Characteristics\n{self.pindrive}"
 
 
-def generate_pinmux_option(options):
-    opt = 0
-    options = options.upper()
+class pinmux_generator:
+    def generate_pinmux_option(options):
+        opt = 0
+        options = options.upper()
 
-    if "HYS_SCHMITT" in options:
-        opt |= PAD_CTL_HYS
-    elif "HYS_CMOS" in options:
-        pass
-    else:
-        raise Exception("no HYS value passed, use -h for valid options")
+        if "HYS_SCHMITT" in options:
+            opt |= PAD_CTL_HYS
+        elif "HYS_CMOS" in options:
+            pass
+        else:
+            raise Exception("no HYS value passed, use -h for valid options")
 
-    if "PUS_100K_DOWN" in options:
-        pass
-    elif "PUS_47K_UP" in options:
-        opt |= PAD_CTL_PUS_47K_UP
-    elif "PUS_100K_UP" in options:
-        opt |= PAD_CTL_PUS_100K_UP
-    elif "PUS_22K_UP" in options:
-        opt |= PAD_CTL_PUS_22K_UP
-    else:
-        raise Exception("no PUS value passed, use -h for valid options")
+        if "PUS_100K_DOWN" in options:
+            pass
+        elif "PUS_47K_UP" in options:
+            opt |= PAD_CTL_PUS_47K_UP
+        elif "PUS_100K_UP" in options:
+            opt |= PAD_CTL_PUS_100K_UP
+        elif "PUS_22K_UP" in options:
+            opt |= PAD_CTL_PUS_22K_UP
+        else:
+            raise Exception("no PUS value passed, use -h for valid options")
 
-    if "PUE_KEEP" in options:
-        pass
-    elif "PUE_PULL" in options:
-        opt |= PAD_CTL_PUE
-    else:
-        raise Exception("no PUE value passed, use -h for valid options")
+        if "PUE_KEEP" in options:
+            pass
+        elif "PUE_PULL" in options:
+            opt |= PAD_CTL_PUE
+        else:
+            raise Exception("no PUE value passed, use -h for valid options")
 
-    if "PKE_ENABLE" in options:
-        opt |= PAD_CTL_PKE
-    elif "PKE_DISABLE" in options:
-        pass
-    else:
-        raise Exception("no PKE value passed, use -h for valid options")
+        if "PKE_ENABLE" in options:
+            opt |= PAD_CTL_PKE
+        elif "PKE_DISABLE" in options:
+            pass
+        else:
+            raise Exception("no PKE value passed, use -h for valid options")
 
-    if "ODE_ENABLE" in options:
-        opt |= PAD_CTL_ODE
-    elif "ODE_DISABLE":
-        pass
-    else:
-        raise Exception("no ODE value passed, use -h for valid options")
+        if "ODE_ENABLE" in options:
+            opt |= PAD_CTL_ODE
+        elif "ODE_DISABLE":
+            pass
+        else:
+            raise Exception("no ODE value passed, use -h for valid options")
 
-    if "LOW_SPEED" in options:
-        opt |= PAD_CTL_SPEED_LOW
-    elif "MED_SPEED" in options:
-        opt |= PAD_CTL_SPEED_MED
-    elif "HIGH_SPEED" in options:
-        opt |= PAD_CTL_SPEED_HIGH
-    else:
-        raise Exception("no SPEED value passed, use -h for valid options")
+        if "LOW_SPEED" in options:
+            opt |= PAD_CTL_SPEED_LOW
+        elif "MED_SPEED" in options:
+            opt |= PAD_CTL_SPEED_MED
+        elif "HIGH_SPEED" in options:
+            opt |= PAD_CTL_SPEED_HIGH
+        else:
+            raise Exception("no SPEED value passed, use -h for valid options")
 
-    if "DSE_DISABLE" in options or "DSE_HIZ" in options:
-        pass
-    elif "DSE_240OHM" in options:
-        opt |= PAD_CTL_DSE_240ohm
-    elif "DSE_120OHM" in options:
-        opt |= PAD_CTL_DSE_120ohm
-    elif "DSE_80OHM" in options:
-        opt |= PAD_CTL_DSE_80ohm
-    elif "DSE_60OHM" in options:
-        opt |= PAD_CTL_DSE_60ohm
-    elif "DSE48OHM" in options:
-        opt |= PAD_CTL_DSE_48ohm
-    elif "DSE40OHM" in options:
-        opt |= PAD_CTL_DSE_40ohm
-    elif "DSE34OHM" in options:
-        opt |= PAD_CTL_DSE_34ohm
-    else:
-        raise Exception("no DSE value passed, use -h for valid options")
+        if "DSE_DISABLE" in options or "DSE_HIZ" in options:
+            pass
+        elif "DSE_240OHM" in options:
+            opt |= PAD_CTL_DSE_240ohm
+        elif "DSE_120OHM" in options:
+            opt |= PAD_CTL_DSE_120ohm
+        elif "DSE_80OHM" in options:
+            opt |= PAD_CTL_DSE_80ohm
+        elif "DSE_60OHM" in options:
+            opt |= PAD_CTL_DSE_60ohm
+        elif "DSE48OHM" in options:
+            opt |= PAD_CTL_DSE_48ohm
+        elif "DSE40OHM" in options:
+            opt |= PAD_CTL_DSE_40ohm
+        elif "DSE34OHM" in options:
+            opt |= PAD_CTL_DSE_34ohm
+        else:
+            raise Exception("no DSE value passed, use -h for valid options")
 
-    if "SRE_SLOW" in options:
-        pass
-    elif "SRE_FAST" in options:
-        opt |= PAD_CTL_SRE_FAST
+        if "SRE_SLOW" in options:
+            pass
+        elif "SRE_FAST" in options:
+            opt |= PAD_CTL_SRE_FAST
 
-    if "SION" in options:
-        opt |= 1 << 30
+        if "SION" in options:
+            opt |= 1 << 30
 
-    return str(hex(opt))
+        return str(hex(opt))
 
 
 if __name__ == "__main__":
@@ -257,7 +258,9 @@ if __name__ == "__main__":
         # generate config
         if line.startswith("-g"):
             try:
-                print(generate_pinmux_option(line.split("-g")[1].strip()))
+                print(
+                    pinmux_generator.generate_pinmux_option(line.split("-g")[1].strip())
+                )
                 exit(0)
             except Exception as ex:
                 print(f"something went wrong: {ex}")
