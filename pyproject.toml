@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pinmux_helper_imx6"
+version = "2025.02.0"
+dependencies = [
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Johannes Zink", email = "opensource@johannes-zink.de"},
+]
+maintainers = [
+  {name = "Johannes Zink", email = "opensource@johannes-zink.de"},
+]
+description = "Parser and simple generator for pinmux and pin drive settings for i.MX6 Processors"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["imx6", "pinmux", "devicetree", "dts", "tool"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest >=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dickenhobelix/imx6qdl-pinmux-helper"
+Repository = "https://github.com/dickenhobelix/imx6qdl-pinmux-helper"
+"Bug Tracker" = "https://github.com/dickenhobelix/imx6qdl-pinmux-helper/issues"
+
+[project.scripts]
+pinmux_helper_imx6 = "pinmux_helper_imx6.pinmux_helper_imx6:main"
+
+[tool.hatch.build.targets.pinmux_helper_imx6]
+packages = ["src/"]
