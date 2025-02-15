@@ -336,7 +336,7 @@ def test_generate_dse():
     assert "no DSE value passed, use -h for valid options" in str(ex.value)
 
 
-def test_generate_speed():
+def test_generate_sre():
     assert 1 == (
         0x1
         & (
