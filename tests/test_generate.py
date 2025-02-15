@@ -1,5 +1,5 @@
 import pytest
-from pinmux_helper_imx6 import pinmux_generator
+from src.pinmux_helper_imx6.pinmux_helper_imx6 import pinmux_generator
 
 
 def test_generate_hys():
